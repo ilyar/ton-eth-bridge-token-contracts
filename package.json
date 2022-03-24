@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "se-reset": "npx everdev se reset",
+    "local-run": "npx locklift run --disable-build --config locklift.config.js --network local",
+    "local-deploy-root": "yarn local-run --script scripts/10-deploy-token-root.js",
+    "local-deploy-account": "yarn local-run --script scripts/00-deploy-account.js --contract_path build --balance 100 --contract_name Wallet",
     "compile": "locklift build --config locklift.config.js"
   },
   "author": "aleksandr-hramcov <aleksandr.hramcov@gmail.com>",
@@ -11,18 +15,18 @@
   "dependencies": {
     "bignumber.js": "^9.0.1",
     "chai-as-promised": "^7.1.1",
-    "folder-hash": "^4.0.1",
     "commander": "^8.0.0",
-    "ora": "^3.4.0",
-    "prompts": "^2.4.2",
+    "folder-hash": "^4.0.1",
     "mocha": "^8.2.1",
     "mocha-logger": "^1.0.7",
+    "ora": "^3.4.0",
+    "prompts": "^2.4.2",
     "ton-client-js": "^0.28.1"
   },
   "devDependencies": {
     "@broxus/contracts": "^1.0.4",
     "chai": "^4.3.0",
     "chai-bignumber": "^3.0.0",
-    "locklift": "^1.4.5"
+    "locklift": "broxus/ton-locklift"
   }
 }
